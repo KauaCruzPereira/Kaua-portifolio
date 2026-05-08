@@ -44,7 +44,7 @@ export default function App() {
     touchStartY.current = null;
   };
 
-  const handleNavigate = (value) => () => {
+  const handleNavigate = (value: string) => () => {
     switch (value) {
       case "Email":
         window.location.href = "mailto:kauacruzps@email.com";
