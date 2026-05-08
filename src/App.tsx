@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import "./App.css";
 
 const sections = [{ id: "hero" }, { id: "sobre" }, { id: "contato" }];
 
