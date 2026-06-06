@@ -46,7 +46,10 @@ export default function App() {
   const handleNavigate = (value: string) => () => {
     switch (value) {
       case "Email":
-        window.location.href = "mailto:kauacruzps@email.com";
+        window.open(
+          "https://mail.google.com/mail/?view=cm&fs=1&to=kauacruzps@gmail.com",
+          "_blank",
+        );
         break;
       case "GitHub":
         window.open("https://github.com/KauaCruzPereira", "_blank");
