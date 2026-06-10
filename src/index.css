@@ -56,6 +56,9 @@
 .section-contato {
   background: #0a0f0a;
 }
+.section-projetos {
+  background: #16150f;
+}
 
 .section-hero::after {
   content: "";
@@ -94,6 +97,19 @@
   opacity: 0.1;
   top: -80px;
   right: 0;
+  pointer-events: none;
+}
+.section-projetos::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: #c9ad12;
+  filter: blur(80px);
+  opacity: 0.1;
+  top: -80px;
+  left: 30px;
   pointer-events: none;
 }
 
@@ -250,38 +266,48 @@
   font-size: 13px;
   color: #aaa;
 }
-
-.dots-nav {
-  position: fixed;
-  right: 28px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 100;
-  background: none;
-  border: none;
-  padding: 0;
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
 }
 
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projects-card {
+  padding: 18px 22px;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
   cursor: pointer;
   transition:
-    background 0.3s,
-    transform 0.3s;
-  padding: 0;
+    border-color 0.2s,
+    background 0.2s;
+}
+.projects-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.dot.active {
-  background: #f0ece2;
-  transform: scale(1.5);
+.p-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 4px;
 }
+.p-val {
+  font-size: 13px;
+  color: #aaa;
+}
+
+
 
 .skill-pill {
   position: relative;
@@ -405,4 +431,36 @@
   border-radius: 2px;
   text-transform: none;
   letter-spacing: 0;
+}
+
+.dots-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+  padding: 0;
+}
+
+.dot.active {
+  background: #f0ece2;
+  transform: scale(1.5);
 }

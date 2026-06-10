@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 
-const sections = [{ id: "hero" }, { id: "sobre" }, { id: "contato" }];
+const sections = [
+  { id: "hero" },
+  { id: "sobre" },
+  { id: "contato" },
+  { id: "projetos" },
+];
 
 export default function App() {
   const [current, setCurrent] = useState(0);
@@ -115,6 +120,15 @@ export default function App() {
     },
   ];
 
+  const projectsData = [
+    {
+      gifPath: "/gifs/SolverEquacoesGif.gif",
+      name: "SolverEquações",
+      desc: "Descrição do projeto 1, tecnologias utilizadas e desafios enfrentados.",
+      tags: ["React", "Node.js", "MongoDB"],
+    },
+  ];
+
   return (
     <div
       ref={containerRef}
@@ -207,6 +221,26 @@ export default function App() {
                 <div className="c-label">{c.label}</div>
                 <div className="c-val">{c.val}</div>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section section-projetos">
+          <span className="tag">Projetos</span>
+
+          <h2 className="sec-title">Meus Projetos</h2>
+
+          <p className="sec-body">
+            Confira alguns dos meus trabalhos recentes e tecnologias utilizadas.
+          </p>
+
+          <div
+            className={`projects-grid ${
+              projectsData.length === 1 ? "single-project" : ""
+            }`}
+          >
+            {projectsData.map((project) => (
+              <div key={project.name} className="projects-card" />
             ))}
           </div>
         </section>
