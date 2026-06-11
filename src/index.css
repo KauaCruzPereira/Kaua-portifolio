@@ -58,7 +58,7 @@
   background: #0a0f0a;
 }
 .section-projetos {
-  background: #16150f;
+  background: #141414c7;
 }
 
 .section-hero::after {
@@ -106,7 +106,7 @@
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: #c9ad12;
+  background: #c4c1c1;
   filter: blur(80px);
   opacity: 0.1;
   top: -80px;
