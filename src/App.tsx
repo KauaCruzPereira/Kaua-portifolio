@@ -1,30 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { ProjectCard } from "./components/ProjectCard";
 import SolverEquacoesIcon from "./assets/png/favicon.png";
-
-const sections = [
-  { id: "hero" },
-  { id: "sobre" },
-  { id: "contato" },
-  { id: "projetos" },
-];
+import { useNavigation } from "./hooks/useNavigation";
+import { SectionHero } from "./sections/SectionHero";
 
 export default function App() {
-  const [current, setCurrent] = useState(0);
-  const [animating, setAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const touchStartY = useRef<number | null>(null);
   const [fullscreenVideo, setFullscreenVideo] = useState<string | null>(null);
-
-  const goTo = (idx: number) => {
-    if (animating || idx === current) return;
-    if (idx < 0 || idx >= sections.length) return;
-    setAnimating(true);
-    setCurrent(idx);
-    setTimeout(() => setAnimating(false), 800);
-  };
-
-  const goNext = () => goTo(current + 1);
+  const { current, animating, sections, goTo, onTouchStart, onTouchEnd } =
+    useNavigation();
 
   useEffect(() => {
     const el = containerRef.current;
@@ -39,17 +23,6 @@ export default function App() {
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, [current, animating]);
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchStartY.current = e.touches[0].clientY;
-  };
-
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartY.current === null) return;
-    const dy = touchStartY.current - e.changedTouches[0].clientY;
-    if (Math.abs(dy) > 40) dy > 0 ? goTo(current + 1) : goTo(current - 1);
-    touchStartY.current = null;
-  };
 
   const handleNavigate = (value: string) => () => {
     switch (value) {
@@ -149,17 +122,7 @@ export default function App() {
         className="sections-track"
         style={{ transform: `translateY(-${current * 100}vh)` }}
       >
-        <section className="section section-hero">
-          <span className="tag">Bem vindo ao meu portfólio</span>
-          <h1 className="hero-title">
-            Olá, me chamo <span className="outlined">Kauã</span>
-          </h1>
-          <p className="subtitle">desenvolvedor · inovador · criador</p>
-          <button className="btn-explore" onClick={goNext}>
-            Explorar mais →
-          </button>
-        </section>
-
+        <SectionHero />
         <section className="section section-sobre">
           <span className="tag">Sobre mim</span>
           <h2 className="sec-title">O que eu faço</h2>
