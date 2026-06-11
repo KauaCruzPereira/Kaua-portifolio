@@ -17,7 +17,7 @@ export type Project = {
 type ProjectCardProps = {
   project: Project;
   onClick?: (project: Project) => void;
-  setFullscreenVideo?: (value: string | null) => void;
+  setFullscreenVideo: (value: string | null) => void;
 };
 
 export function ProjectCard({ project, setFullscreenVideo }: ProjectCardProps) {
@@ -34,7 +34,7 @@ export function ProjectCard({ project, setFullscreenVideo }: ProjectCardProps) {
     videoRef.current.currentTime = 0;
   };
 
-  const handleNavigate = (url) => {
+  const handleNavigate = (url: string) => {
     window.open(url, "_blank");
   };
 
@@ -69,7 +69,7 @@ export function ProjectCard({ project, setFullscreenVideo }: ProjectCardProps) {
       </button>
 
       <div className="bottom-preview">
-        <div className="indicator"/>
+        <div className="indicator" />
         <div className="project-identity">
           <img
             className="project-initial"
