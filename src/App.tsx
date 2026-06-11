@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { ProjectCard } from "./components/ProjectCard";
-import SolverEquacoesIcon from "./assets/png/favicon.png";
 import { useNavigation } from "./hooks/useNavigation";
 import { SectionHero } from "./sections/SectionHero";
 import { SectionSobre } from "./sections/SectionSobre";
 import { SectionContato } from "./sections/SectionContato";
+import { SectionProjetos } from "./sections/SectionProjetos";
+import SolverEquacoesIcon from "./assets/png/favicon.png";
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,31 +54,11 @@ export default function App() {
       >
         <SectionHero />
         <SectionSobre />
-        <SectionContato/>
-
-        <section className="section section-projetos">
-          <span className="tag">Projetos</span>
-
-          <h2 className="sec-title">Meus Projetos</h2>
-
-          <p className="sec-body">
-            Confira alguns dos meus trabalhos recentes e tecnologias utilizadas.
-          </p>
-
-          <div
-            className={`projects-grid ${
-              projectsData.length === 1 ? "single-project" : ""
-            }`}
-          >
-            {projectsData.map((project) => (
-              <ProjectCard
-                key={project.title}
-                project={project}
-                setFullscreenVideo={setFullscreenVideo}
-              />
-            ))}
-          </div>
-        </section>
+        <SectionContato />
+        <SectionProjetos
+          projects={projectsData}
+          handleSetFullScreen={(gif) => setFullscreenVideo(gif)}
+        />
       </div>
 
       <nav className="dots-nav" aria-label="Navegação por seções">
