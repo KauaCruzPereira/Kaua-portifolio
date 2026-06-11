@@ -31,8 +31,8 @@ export const SectionSobre = () => {
     {
       name: "JavaScript",
       desc: "ES6+, async/await, manipulação do DOM e lógica de negócio.",
-      level: 65,
-      levelLabel: "intermediário",
+      level: 80,
+      levelLabel: "avançado",
       tags: ["ES6+", "async", "DOM"],
     },
     {
@@ -45,7 +45,7 @@ export const SectionSobre = () => {
     {
       name: "Node.js",
       desc: "APIs REST, middleware, autenticação e integração com bancos.",
-      level: 72,
+      level: 60,
       levelLabel: "intermediário",
       tags: ["express", "REST", "auth"],
     },
