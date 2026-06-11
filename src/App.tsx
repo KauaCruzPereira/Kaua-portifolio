@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { ProjectCard } from "./components/ProjectCard";
+import SolverEquacoesIcon from "./assets/png/favicon.png";
 
 const sections = [
   { id: "hero" },
@@ -12,6 +14,7 @@ export default function App() {
   const [animating, setAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number | null>(null);
+  const [fullscreenVideo, setFullscreenVideo] = useState<string | null>(null);
 
   const goTo = (idx: number) => {
     if (animating || idx === current) return;
@@ -122,10 +125,16 @@ export default function App() {
 
   const projectsData = [
     {
-      gifPath: "/gifs/SolverEquacoesGif.gif",
-      name: "SolverEquações",
-      desc: "Descrição do projeto 1, tecnologias utilizadas e desafios enfrentados.",
-      tags: ["React", "Node.js", "MongoDB"],
+      websiteUrl: "https://solver-equacoes.vercel.app/",
+      gif: "/gifs/SolverEquacoes.mp4",
+      title: "SolverEquações",
+      description:
+        "SolverEquações é uma calculadora matemática desenvolvida para dispositivos móveis que resolve expressões e equações apresentando cada etapa da resolução. O projeto também integra um assistente de inteligência artificial para auxiliar estudantes na compreensão dos cálculos e conceitos matemáticos, sendo apresentado na Feira de Ciências do CEDUP.",
+      shortDescription:
+        "Calculadora que resolve expressões e equações, mostrando cada etapa.",
+      technologies: ["React", "Node.js", "Express"],
+      githubUrl: "https://github.com/KauaCruzPereira/SolverEquacoes",
+      icon: SolverEquacoesIcon,
     },
   ];
 
@@ -240,7 +249,11 @@ export default function App() {
             }`}
           >
             {projectsData.map((project) => (
-              <div key={project.name} className="projects-card" />
+              <ProjectCard
+                key={project.title}
+                project={project}
+                setFullscreenVideo={setFullscreenVideo}
+              />
             ))}
           </div>
         </section>
@@ -256,6 +269,25 @@ export default function App() {
           />
         ))}
       </nav>
+
+      {fullscreenVideo && (
+        <div className="video-modal" onClick={() => setFullscreenVideo(null)}>
+          <video
+            src={fullscreenVideo}
+            controls
+            autoPlay
+            loop
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          <button
+            className="close-btn"
+            onClick={() => setFullscreenVideo(null)}
+          >
+            ✕
+          </button>
+        </div>
+      )}
     </div>
   );
 }
