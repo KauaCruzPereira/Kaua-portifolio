@@ -62,7 +62,7 @@ export function ProjectCard({ project, setFullscreenVideo }: ProjectCardProps) {
         className="fullscreen-btn"
         onClick={(e) => {
           e.stopPropagation();
-          setFullscreenVideo(project.gif || null);
+          setFullscreenVideo(project.gif);
         }}
       >
         ⛶
