@@ -35,7 +35,7 @@ export default function App() {
         "SolverEquações é uma calculadora matemática desenvolvida para dispositivos móveis que resolve expressões e equações apresentando cada etapa da resolução. O projeto também integra um assistente de inteligência artificial para auxiliar estudantes na compreensão dos cálculos e conceitos matemáticos, sendo apresentado na Feira de Ciências do CEDUP.",
       shortDescription:
         "Calculadora que resolve expressões e equações, mostrando cada etapa.",
-      technologies: ["React", "Node.js", "Express"],
+      technologies: ["React-native", "TypeScript", "Expo", "API GroqAI"],
       githubUrl: "https://github.com/KauaCruzPereira/SolverEquacoes",
       icon: SolverEquacoesIcon,
     },
