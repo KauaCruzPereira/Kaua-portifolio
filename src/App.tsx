@@ -3,6 +3,8 @@ import { ProjectCard } from "./components/ProjectCard";
 import SolverEquacoesIcon from "./assets/png/favicon.png";
 import { useNavigation } from "./hooks/useNavigation";
 import { SectionHero } from "./sections/SectionHero";
+import { SectionSobre } from "./sections/SectionSobre";
+import { SectionContato } from "./sections/SectionContato";
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,78 +25,6 @@ export default function App() {
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, [current, animating]);
-
-  const handleNavigate = (value: string) => () => {
-    switch (value) {
-      case "Email":
-        window.open(
-          "https://mail.google.com/mail/?view=cm&fs=1&to=kauacruzps@gmail.com",
-          "_blank",
-        );
-        break;
-      case "GitHub":
-        window.open("https://github.com/KauaCruzPereira", "_blank");
-        break;
-      case "LinkedIn":
-        window.open("https://linkedin.com/in/kauã-cruz-pereira", "_blank");
-        break;
-      case "WhatsApp":
-        window.open("https://wa.me/5548991596521", "_blank");
-        break;
-    }
-  };
-
-  const skillsData = [
-    {
-      name: "HTML",
-      desc: "Marcação semântica, acessibilidade e estrutura de documentos web.",
-      level: 95,
-      levelLabel: "avançado",
-      tags: ["semântica", "acessibilidade", "SEO"],
-    },
-    {
-      name: "CSS",
-      desc: "Estilização avançada com Flexbox, Grid, animações e variáveis.",
-      level: 90,
-      levelLabel: "avançado",
-      tags: ["flexbox", "grid", "animações"],
-    },
-    {
-      name: "React",
-      desc: "Componentes reutilizáveis, hooks, context e gerenciamento de estado.",
-      level: 85,
-      levelLabel: "avançado",
-      tags: ["hooks", "context", "vite"],
-    },
-    {
-      name: "React Native",
-      desc: "Apps móveis multiplataforma com componentes nativos e expo.",
-      level: 90,
-      levelLabel: "avançado",
-      tags: ["expo", "iOS", "Android"],
-    },
-    {
-      name: "JavaScript",
-      desc: "ES6+, async/await, manipulação do DOM e lógica de negócio.",
-      level: 65,
-      levelLabel: "intermediário",
-      tags: ["ES6+", "async", "DOM"],
-    },
-    {
-      name: "TypeScript",
-      desc: "Tipagem estática, interfaces, generics e melhor tooling.",
-      level: 80,
-      levelLabel: "avançado",
-      tags: ["tipos", "interfaces", "generics"],
-    },
-    {
-      name: "Node.js",
-      desc: "APIs REST, middleware, autenticação e integração com bancos.",
-      level: 72,
-      levelLabel: "intermediário",
-      tags: ["express", "REST", "auth"],
-    },
-  ];
 
   const projectsData = [
     {
@@ -123,79 +53,8 @@ export default function App() {
         style={{ transform: `translateY(-${current * 100}vh)` }}
       >
         <SectionHero />
-        <section className="section section-sobre">
-          <span className="tag">Sobre mim</span>
-          <h2 className="sec-title">O que eu faço</h2>
-          <p className="sec-body">
-            Crio experiências digitais com atenção aos detalhes. Apaixonado por
-            código limpo, interfaces elegantes e soluções criativas para
-            problemas complexos.
-          </p>
-          <div className="skill-row">
-            {skillsData.map((s) => (
-              <div key={s.name} className="skill-pill">
-                {s.name}
-                <div className="skill-tooltip">
-                  <div className="tt-name">{s.name}</div>
-                  <div className="tt-desc">{s.desc}</div>
-                  <div className="tt-bar-wrap">
-                    <div className="tt-bar-bg">
-                      <div
-                        className="tt-bar-fill"
-                        style={{ width: `${s.level}%` }}
-                      />
-                    </div>
-                    <span className="tt-level">{s.levelLabel}</span>
-                  </div>
-                  <div className="tt-tags">
-                    {s.tags.map((t) => (
-                      <span key={t} className="tt-tag">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="section section-contato">
-          <span className="tag">Contato</span>
-          <h2 className="sec-title">Vamos conversar</h2>
-          <p className="sec-body">
-            Aberto a projetos freelance, colaborações e oportunidades.
-          </p>
-          <div className="contact-grid">
-            {[
-              {
-                label: "Email",
-                val: "kauacruzps@email.com",
-              },
-              {
-                label: "GitHub",
-                val: "@KauaCruzPereira",
-              },
-              {
-                label: "LinkedIn",
-                val: "/in/kauã-cruz-pereira",
-              },
-              {
-                label: "WhatsApp",
-                val: "48 99159-6521",
-              },
-            ].map((c) => (
-              <div
-                key={c.label}
-                className="contact-card"
-                onClick={handleNavigate(c.label)}
-              >
-                <div className="c-label">{c.label}</div>
-                <div className="c-val">{c.val}</div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <SectionSobre />
+        <SectionContato/>
 
         <section className="section section-projetos">
           <span className="tag">Projetos</span>
