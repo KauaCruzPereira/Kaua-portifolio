@@ -4,7 +4,7 @@ import { SectionHero } from "./sections/SectionHero";
 import { SectionSobre } from "./sections/SectionSobre";
 import { SectionContato } from "./sections/SectionContato";
 import { SectionProjetos } from "./sections/SectionProjetos";
-import SolverEquacoesIcon from "./assets/png/favicon.png";
+import BibliotecaDoEstudante from "./assets/png/203logo.png";
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,16 +28,22 @@ export default function App() {
 
   const projectsData = [
     {
-      websiteUrl: "https://solver-equacoes.vercel.app/",
-      gif: "/gifs/SolverEquacoes.mp4",
-      title: "SolverEquações",
+      websiteUrl: "https://biblioteca-do-estudante.vercel.app/",
+      gif: "/gifs/BibliotecaDoEstudante.mp4",
+      title: "Biblioteca do Estudante",
       description:
-        "SolverEquações é uma calculadora matemática desenvolvida para dispositivos móveis que resolve expressões e equações apresentando cada etapa da resolução. O projeto também integra um assistente de inteligência artificial para auxiliar estudantes na compreensão dos cálculos e conceitos matemáticos, sendo apresentado na Feira de Ciências do CEDUP.",
-      shortDescription:
-        "Calculadora que resolve expressões e equações, mostrando cada etapa.",
-      technologies: ["React-native", "TypeScript", "Expo", "API GroqAI"],
-      githubUrl: "https://github.com/KauaCruzPereira/SolverEquacoes",
-      icon: SolverEquacoesIcon,
+        "Plataforma de estudos para ENEM e Ensino Médio, com biblioteca digital, simulados, página de redação, calculadoras matemáticas com resolução passo a passo e assistente de IA para apoio aos estudos. Desenvolvida como projeto para uma Feira de Ciências.",
+      shortDescription: "Plataforma de estudos para ENEM e Ensino Médio.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "TailwindCSS",
+        "CSS",
+        "API GroqAI",
+      ],
+      githubUrl: "https://github.com/KauaCruzPereira/BibliotecaDoEstudante",
+      icon: BibliotecaDoEstudante,
     },
   ];
 

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import GithubIcon from "../../assets/svg/github";
 
-//GIFS DEVEM SER GRAVADOS NO NAVEGADOR COM 1637x907
+//GIFS MOBILE DEVEM SER GRAVADOS NO NAVEGADOR COM 1637x907
 
 export type Project = {
   title: string;
